@@ -35,7 +35,7 @@ export const Reviews = () => {
     };
 
     fetchReviews();
-  }, [movieId]);
+  }, []);
 
   return (
     <div>

@@ -38,7 +38,7 @@ const MovieDetails = () => {
     };
 
     fetchDetails();
-  }, [movieId]);
+  }, []);
 
   return (
     <div>
