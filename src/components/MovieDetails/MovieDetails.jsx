@@ -1,10 +1,11 @@
+import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { NavLink, Route, Routes, useParams } from 'react-router-dom';
-import axios from 'axios';
-import { MovieDetailsComponent } from 'components/MovieDetailsComponent'
-import { Loader } from './Loader';
-import { Casts } from 'components/Casts';
-import {Reviews} from 'components/Reviews';
+
+import { MovieDetailsComponent } from 'components/MovieDetails/MovieDetailsComponent';
+import { Loader } from '../Loader';
+import { Casts } from 'components/Casts/Casts';
+import { Reviews } from 'components/Reviews/Reviews';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
@@ -39,21 +40,33 @@ const MovieDetails = () => {
     fetchDetails();
   }, [movieId]);
 
-    return <div>
-        {isLoading !== false && <Loader />}
+  return (
+    <div>
+      {isLoading !== false && <Loader />}
       {error !== null && (
         <p>Oops, some error occured... Error message: {error}</p>
       )}
-        {movieDescription && (<MovieDetailsComponent title={movieDescription.title} genres={movieDescription.genres} overview={movieDescription.overview} picture={movieDescription.poster_path} vote={movieDescription.vote_average} date={movieDescription.release_date} />)}
-        <div>
-            <NavLink to='cast' >Cast</NavLink>
-            <NavLink to='reviews'>Reviews</NavLink>
-            <Routes>
-                <Route path='cast' element={<Casts/>} />
-                <Route path='reviews' element={ <Reviews/>} />
-            </Routes>
-        </div>
-  </div>;
+      {movieDescription && (
+        <MovieDetailsComponent
+          alternativeTitle={movieDescription.original_name}
+          title={movieDescription.title}
+          genres={movieDescription.genres}
+          overview={movieDescription.overview}
+          picture={movieDescription.poster_path}
+          vote={movieDescription.vote_average}
+          date={movieDescription.release_date}
+        />
+      )}
+      <div>
+        <NavLink to="cast">Cast</NavLink>
+        <NavLink to="reviews">Reviews</NavLink>
+        <Routes>
+          <Route path="cast" element={<Casts />} />
+          <Route path="reviews" element={<Reviews />} />
+        </Routes>
+      </div>
+    </div>
+  );
 };
 
 export default MovieDetails;

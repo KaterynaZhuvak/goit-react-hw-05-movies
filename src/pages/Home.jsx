@@ -1,4 +1,4 @@
-import {TrendingToday} from 'components/TrendingToday'
+import {TrendingToday} from 'components/HomePage/TrendingToday'
 
 const Home = () => {
 return (

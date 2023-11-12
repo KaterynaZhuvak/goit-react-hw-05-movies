@@ -2,8 +2,8 @@ import React from 'react';
 import { NavLink, Route, Routes } from 'react-router-dom';
 import Home from 'pages/Home';
 import Movies from 'pages/Movies';
-import NotFound from 'components/NotFound';
-import MovieDetails  from './MovieDetails';
+import { NotFound } from 'components/NotFound';
+import MovieDetails from './MovieDetails/MovieDetails';
 
 // 1e0f30905043e91e3d75d15638977d86
 
@@ -19,7 +19,7 @@ export const App = () => {
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path='/movies/:movieId/*' element={<MovieDetails />} />
+          <Route path="/movies/:movieId/*" element={<MovieDetails />} />
           <Route path="/movies" element={<Movies />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
