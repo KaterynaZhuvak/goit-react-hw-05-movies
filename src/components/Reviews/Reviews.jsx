@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Loader } from 'components/Loader';
 import { ReviewList } from 'components/Reviews/ReviewList';
-import { NotFound } from 'components/NotFound';
 
 export const Reviews = () => {
   const { movieId } = useParams();
