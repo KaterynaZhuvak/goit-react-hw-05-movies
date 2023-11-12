@@ -35,7 +35,7 @@ export const Casts = () => {
     };
 
     fetchCasts();
-  }, [movieId]);
+  }, []);
 
   return (
     <div>
