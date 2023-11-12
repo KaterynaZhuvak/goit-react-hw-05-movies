@@ -8,7 +8,10 @@ export const TrendingToday = () => {
   const [error, setError] = useState(null);
   const [films, setFilms] = useState([]);
 
-  const options = {
+
+
+  useEffect(() => {
+      const options = {
     method: 'GET',
     url: 'https://api.themoviedb.org/3/trending/all/day',
     params: { language: 'en-US' },
@@ -17,9 +20,8 @@ export const TrendingToday = () => {
       Authorization:
         'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxZTBmMzA5MDUwNDNlOTFlM2Q3NWQxNTYzODk3N2Q4NiIsInN1YiI6IjY1NGZjNDcyMjg2NmZhMTA4ZGM1Njc3YSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.lx_HtS3ZcboNqUtdarGHjit2ujK3zjcrh0XUPiGXEFg',
     },
-  };
-
-  useEffect(() => {
+    }; 
+    
     const fetchMovies = async () => {
       try {
         setIsLoading(true);

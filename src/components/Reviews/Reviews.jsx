@@ -10,7 +10,10 @@ export const Reviews = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const options = {
+
+
+  useEffect(() => {
+      const options = {
     method: 'GET',
     url: `https://api.themoviedb.org/3/movie/${movieId}/reviews`,
     params: { language: 'en-US', page: '1' },
@@ -19,9 +22,8 @@ export const Reviews = () => {
       Authorization:
         'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxZTBmMzA5MDUwNDNlOTFlM2Q3NWQxNTYzODk3N2Q4NiIsInN1YiI6IjY1NGZjNDcyMjg2NmZhMTA4ZGM1Njc3YSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.lx_HtS3ZcboNqUtdarGHjit2ujK3zjcrh0XUPiGXEFg',
     },
-  };
-
-  useEffect(() => {
+      };
+    
     const fetchReviews = async () => {
       try {
         setIsLoading(true);

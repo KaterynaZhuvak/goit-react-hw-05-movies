@@ -1,7 +1,7 @@
-export const Cast = ({ name, character, picture }) => {
+export const Cast = ({ name, character, picture, url }) => {
   return (
     <li>
-      <img src={picture} alt={name} />
+      <img src={url + picture} alt={name} />
       <p>{name}</p>
       <p>{character}</p>
     </li>

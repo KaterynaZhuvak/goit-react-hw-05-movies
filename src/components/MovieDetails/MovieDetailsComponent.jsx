@@ -1,4 +1,5 @@
 export const MovieDetailsComponent = ({
+  url,
   title,
   genres,
   overview,
@@ -9,11 +10,11 @@ export const MovieDetailsComponent = ({
 }) => {
   return (
     <div>
-      <img src={picture} alt={title} />
+      <img src={url + picture} alt={title} />
       <h1>
-        {title || alternative} ({date})
+        {title || alternative} ({Number.parseFloat(date)})
       </h1>
-      <p>Voting score {vote}</p>
+      <p>Voting score {Math.round(vote * 10)}%</p>
       <h2>Overview</h2>
       <p>{overview}</p>
       <h2>Genres</h2>

@@ -13,18 +13,20 @@ const MovieDetails = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const options = {
-    method: 'GET',
-    url: `https://api.themoviedb.org/3/movie/${movieId}`,
-    params: { append_to_response: '1', language: 'en-US' },
-    headers: {
-      accept: 'application/json',
-      Authorization:
-        'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxZTBmMzA5MDUwNDNlOTFlM2Q3NWQxNTYzODk3N2Q4NiIsInN1YiI6IjY1NGZjNDcyMjg2NmZhMTA4ZGM1Njc3YSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.lx_HtS3ZcboNqUtdarGHjit2ujK3zjcrh0XUPiGXEFg',
-    },
-  };
+  const url = 'http://image.tmdb.org/t/p/w300';
 
   useEffect(() => {
+    const options = {
+      method: 'GET',
+      url: `https://api.themoviedb.org/3/movie/${movieId}`,
+      params: { append_to_response: '1', language: 'en-US' },
+      headers: {
+        accept: 'application/json',
+        Authorization:
+          'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxZTBmMzA5MDUwNDNlOTFlM2Q3NWQxNTYzODk3N2Q4NiIsInN1YiI6IjY1NGZjNDcyMjg2NmZhMTA4ZGM1Njc3YSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.lx_HtS3ZcboNqUtdarGHjit2ujK3zjcrh0XUPiGXEFg',
+      },
+    };
+
     const fetchDetails = async () => {
       try {
         setIsLoading(true);
@@ -48,6 +50,7 @@ const MovieDetails = () => {
       )}
       {movieDescription && (
         <MovieDetailsComponent
+          url={url}
           alternativeTitle={movieDescription.original_name}
           title={movieDescription.title}
           genres={movieDescription.genres}

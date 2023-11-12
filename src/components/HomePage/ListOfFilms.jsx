@@ -1,5 +1,7 @@
 import { Items } from 'components/HomePage/Items';
+
 export const ListOfFilms = ({ data }) => {
+  
   return (
     <ul>
       {data !== null &&
