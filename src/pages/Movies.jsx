@@ -1,4 +1,4 @@
-import {SearchForm} from 'components/Movies/SearchForm'
+import {SearchForm} from 'components/MoviesPage/SearchForm'
 
 const Movies = () => {
   return <div>

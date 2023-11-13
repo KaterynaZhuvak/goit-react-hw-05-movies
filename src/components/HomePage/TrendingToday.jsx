@@ -1,8 +1,9 @@
 import { ListOfFilms } from 'components/HomePage/ListOfFilms';
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
-import { Loader } from 'components/Loader';
 import { useLocation } from 'react-router-dom';
+
+import { Loader } from 'components/Loader';
 
 export const TrendingToday = () => {
   const [isLoading, setIsLoading] = useState(false);

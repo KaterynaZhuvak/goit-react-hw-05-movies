@@ -1,9 +1,12 @@
 import { Cast } from 'components/Casts/Cast';
+import { NotFound } from 'components/NotFound';
+
 export const CastsList = ({ castsInfo }) => {
-  const url = 'http://image.tmdb.org/t/p/w300'
+  const url = 'http://image.tmdb.org/t/p/w300';
   return (
     <ul>
-      {castsInfo.map(item => (
+      {castsInfo.length !== 0 ? (
+        castsInfo.map(item => (
         <Cast
           url={url}
           key={item.id}
@@ -11,7 +14,7 @@ export const CastsList = ({ castsInfo }) => {
           character={item.character}
           picture={item.profile_path}
         />
-      ))}
+        ))) : ( <NotFound />)}
     </ul>
   );
 };

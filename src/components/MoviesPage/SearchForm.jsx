@@ -1,8 +1,9 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
+
 import { Loader } from 'components/Loader';
 import { useSearchParams, useLocation } from 'react-router-dom';
-import { SearchResults } from 'components/Movies/SearchResults';
+import { SearchResults } from 'components/MoviesPage/SearchResults';
 
 export const SearchForm = () => {
   const [params, setParams] = useSearchParams();

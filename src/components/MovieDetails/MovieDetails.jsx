@@ -1,6 +1,13 @@
 import axios from 'axios';
 import React, { useState, useEffect, useRef } from 'react';
-import { NavLink, Route, Routes, useParams, useLocation, Link } from 'react-router-dom';
+import {
+  NavLink,
+  Route,
+  Routes,
+  useParams,
+  useLocation,
+  Link,
+} from 'react-router-dom';
 
 import { MovieDetailsComponent } from 'components/MovieDetails/MovieDetailsComponent';
 import { Loader } from '../Loader';
@@ -10,7 +17,7 @@ import { Reviews } from 'components/Reviews/Reviews';
 const MovieDetails = () => {
   const { movieId } = useParams();
   const location = useLocation();
-  const backLink = useRef(location.state?.from ?? '/')
+  const backLink = useRef(location.state?.from ?? '/');
 
   const [movieDescription, setMovieDescription] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
