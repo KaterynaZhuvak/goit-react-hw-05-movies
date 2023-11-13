@@ -2,17 +2,14 @@ import axios from 'axios';
 import React, { useState, useEffect, useRef } from 'react';
 import {
   NavLink,
-  Route,
-  Routes,
   useParams,
   useLocation,
   Link,
+  Outlet,
 } from 'react-router-dom';
 
 import { MovieDetailsComponent } from 'components/MovieDetails/MovieDetailsComponent';
-import { Loader } from '../Loader';
-import { Casts } from 'components/Casts/Casts';
-import { Reviews } from 'components/Reviews/Reviews';
+import { Loader } from '../components/Loader';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
@@ -71,14 +68,11 @@ const MovieDetails = () => {
           date={movieDescription.release_date}
         />
       )}
-      <div>
-        <NavLink to="cast">Cast</NavLink>
-        <NavLink to="reviews">Reviews</NavLink>
-        <Routes>
-          <Route path="cast" element={<Casts />} />
-          <Route path="reviews" element={<Reviews />} />
-        </Routes>
-      </div>
+      <ul>
+        <li><NavLink to="cast">Cast</NavLink></li>
+        <li><NavLink to="reviews">Reviews</NavLink></li>
+      </ul>
+      <Outlet/>
     </div>
   );
 };

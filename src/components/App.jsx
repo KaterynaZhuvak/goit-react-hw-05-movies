@@ -3,12 +3,15 @@ import { Route, Routes } from 'react-router-dom';
 // import Home from 'pages/Home';
 // import Movies from 'pages/Movies';
 import { NotFound } from 'components/NotFound';
-import MovieDetails from './MovieDetails/MovieDetails';
+// import MovieDetails from '../pages/MovieDetails';
 import Layout from 'components/Layout';
 import { Loader } from './Loader';
+import { Cast } from 'components/Casts/Cast';
+import { Reviews } from 'components/Reviews/Reviews';
 
 const Home = lazy(() => import('pages/Home'));
 const Movies = lazy(() => import('pages/Movies'));
+const MovieDetails = lazy(() => import('pages/MovieDetails'));
 
 // 1e0f30905043e91e3d75d15638977d86
 
@@ -20,7 +23,10 @@ export const App = () => {
       <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/movies/:movieId/*" element={<MovieDetails />} />
+          <Route path="movies/:movieId" element={<MovieDetails />}>
+          <Route path="cast" element={<Cast />} />
+          <Route path="reviews" element={<Reviews />} />
+        </Route>
           <Route path="/movies" element={<Movies />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
