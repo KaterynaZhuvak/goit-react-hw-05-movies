@@ -1,7 +1,6 @@
 import { Items } from 'components/HomePage/Items';
 
-export const ListOfFilms = ({ data }) => {
-  
+export const ListOfFilms = ({ data, location }) => {
   return (
     <ul>
       {data !== null &&
@@ -11,6 +10,7 @@ export const ListOfFilms = ({ data }) => {
             id={item.id}
             name={item.title}
             alternative={item.original_name}
+            location={location}
           />
         ))}
     </ul>

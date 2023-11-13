@@ -8,9 +8,7 @@ export const ReviewList = ({ info }) => {
         info.map(item => (
           <ReviewItem key={item.id} name={item.author} content={item.content} />
         ))
-      ) : (
-        <NotFound />
-      )}
+      ) : ( <NotFound />)}
     </ul>
   );
 };

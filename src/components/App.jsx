@@ -1,9 +1,14 @@
-import React from 'react';
-import { NavLink, Route, Routes } from 'react-router-dom';
-import Home from 'pages/Home';
-import Movies from 'pages/Movies';
+import React, { Suspense, lazy } from 'react';
+import { Route, Routes } from 'react-router-dom';
+// import Home from 'pages/Home';
+// import Movies from 'pages/Movies';
 import { NotFound } from 'components/NotFound';
 import MovieDetails from './MovieDetails/MovieDetails';
+import Layout from 'components/Layout';
+import { Loader } from './Loader';
+
+const Home = lazy(() => import('pages/Home'));
+const Movies = lazy(() => import('pages/Movies'));
 
 // 1e0f30905043e91e3d75d15638977d86
 
@@ -11,19 +16,15 @@ import MovieDetails from './MovieDetails/MovieDetails';
 
 export const App = () => {
   return (
-    <div>
-      <header>
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/movies">Movies</NavLink>
-      </header>
-      <main>
+    <Layout>
+      <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/movies/:movieId/*" element={<MovieDetails />} />
           <Route path="/movies" element={<Movies />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-      </main>
-    </div>
+      </Suspense>
+    </Layout>
   );
 };

@@ -1,6 +1,6 @@
 import axios from 'axios';
-import React, { useState, useEffect } from 'react';
-import { NavLink, Route, Routes, useParams } from 'react-router-dom';
+import React, { useState, useEffect, useRef } from 'react';
+import { NavLink, Route, Routes, useParams, useLocation, Link } from 'react-router-dom';
 
 import { MovieDetailsComponent } from 'components/MovieDetails/MovieDetailsComponent';
 import { Loader } from '../Loader';
@@ -9,6 +9,9 @@ import { Reviews } from 'components/Reviews/Reviews';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
+  const location = useLocation();
+  const backLink = useRef(location.state?.from ?? '/')
+
   const [movieDescription, setMovieDescription] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -40,10 +43,11 @@ const MovieDetails = () => {
     };
 
     fetchDetails();
-  }, []);
+  }, [movieId]);
 
   return (
     <div>
+      <Link to={backLink.current}>Back</Link>
       {isLoading !== false && <Loader />}
       {error !== null && (
         <p>Oops, some error occured... Error message: {error}</p>
