@@ -1,10 +1,11 @@
-import { Items } from 'components/HomePage/Items';
+import { Items } from 'components/ListOfFilms/Items';
 
-export const ListOfFilms = ({ data, location }) => {
+export const MoviesList = ({films, location}) => {
+
   return (
     <ul>
-      {data !== null &&
-        data.map(item => (
+      {films !== null &&
+        films.map(item => (
           <Items
             key={item.id}
             id={item.id}

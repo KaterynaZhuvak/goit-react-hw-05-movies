@@ -1,4 +1,4 @@
-import { MoviesList } from 'components/HomePage/MoviesList';
+import { MoviesList } from 'components/ListOfFilms/MoviesList';
 
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';

@@ -1,4 +1,4 @@
-import { Cast } from 'components/Casts/Cast';
+import { Cast } from 'components/Casts/CastItem';
 import { NotFound } from 'components/NotFound';
 
 export const CastsList = ({ castsInfo }) => {

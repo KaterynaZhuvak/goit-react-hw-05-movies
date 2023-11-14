@@ -1,5 +1,4 @@
 export const MovieDetailsComponent = ({
-  url,
   title,
   genres,
   overview,
@@ -10,7 +9,14 @@ export const MovieDetailsComponent = ({
 }) => {
   return (
     <div>
-      <img src={url + picture} alt={title} />
+      <img
+        src={
+          picture
+            ? `https://image.tmdb.org/t/p/w500/${picture}`
+            : 'https://i.work.ua/career_guide/59_b.png'
+        }
+        alt={title || alternative}
+      />
       <h1>
         {title || alternative} ({Number.parseFloat(date)})
       </h1>
