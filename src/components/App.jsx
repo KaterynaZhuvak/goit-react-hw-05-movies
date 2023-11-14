@@ -1,10 +1,8 @@
 import React, { Suspense, lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
-// import Home from 'pages/Home';
-// import Movies from 'pages/Movies';
-import { NotFound } from 'components/NotFound';
-// import MovieDetails from '../pages/MovieDetails';
+
 import Layout from 'components/Layout';
+import { NotFound } from 'components/NotFound';
 import { Loader } from './Loader';
 import { Casts } from 'components/Casts/Casts';
 import { Reviews } from 'components/Reviews/Reviews';
@@ -36,17 +34,3 @@ export const App = () => {
   );
 };
 
-// {/* <Layout>
-//       <Suspense fallback={<Loader />}>
-//         <Routes>
-//           <Route path="/" element={<Home />} />
-//           <Route path="/movies" element={<Movies />} />
-//           <Route path="movies/:movieId" element={<MovieDetails />}>
-//             {/* Nested routes for cast and reviews */}
-//             <Route path="cast" element={<Cast />} />
-//             <Route path="reviews" element={<Reviews />} />
-//           </Route>
-//           <Route path="*" element={<NotFound />} />
-//         </Routes>
-//       </Suspense>
-//     </Layout> */}

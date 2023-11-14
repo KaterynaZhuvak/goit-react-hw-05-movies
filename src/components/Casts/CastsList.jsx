@@ -7,14 +7,17 @@ export const CastsList = ({ castsInfo }) => {
     <ul>
       {castsInfo.length !== 0 ? (
         castsInfo.map(item => (
-        <Cast
-          url={url}
-          key={item.id}
-          name={item.original_name}
-          character={item.character}
-          picture={item.profile_path}
-        />
-        ))) : ( <NotFound />)}
+          <Cast
+            url={url}
+            key={item.id}
+            name={item.original_name}
+            character={item.character}
+            picture={item.profile_path}
+          />
+        ))
+      ) : (
+        <NotFound />
+      )}
     </ul>
   );
 };

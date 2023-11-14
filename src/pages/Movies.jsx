@@ -20,7 +20,6 @@ const Movies = () => {
     const value = e.currentTarget.elements.inputQuery.value;
     setParams({ query: value });
   };
-  console.log(query);
 
   useEffect(() => {
     if (!query) {

@@ -1,7 +1,6 @@
 import { Items } from 'components/ListOfFilms/Items';
 
-export const MoviesList = ({films, location}) => {
-
+export const MoviesList = ({ films, location }) => {
   return (
     <ul>
       {films !== null &&
